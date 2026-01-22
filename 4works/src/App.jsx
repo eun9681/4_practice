@@ -1,6 +1,21 @@
 import { useState } from 'react'
 import StepCounter from './StepCounter'
+import RemoveID from './RemoveID'
 import './App.css'
+import ObjectState from './ObjectState'
+
+/*
+  4일차
+  - 컴포넌트 분리
+  - props 전달
+  - 상태 변경
+  - 상태 객체의 불변성
+  - 조건부 렌더링
+*/
+
+
+
+
 
 function App() {
   const [count, setCount] = useState(0) // useState(0) -> 상태 초기값
@@ -28,7 +43,7 @@ function App() {
 
     setText('');
   }
-  function removeItem(items){
+  function removeItem(index){
     setItems(
       items.filter((_, i) => i !== index)
     )
@@ -78,10 +93,14 @@ function App() {
       하위 컴포넌트(StepCounter.jsx)에게 props로 상태를 전달
       이렇게 만들어진 컴포넌트(StepCounter.jsx)는 props
     */}
-    <removeItem
-      
+    <RemoveID
+      items={items}
+      text={text}
+      onTextChange={setText}
+      onAdd={addItem}
+      onRemove={removeItem}
     />
-
+    <ObjectState/>
     </>
   )
 }
