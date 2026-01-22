@@ -57,18 +57,31 @@ function App() {
             예시) key={item}
           */
         }
-        {items.map((item) => <li key={item}>
+        {items.map((item,index) => <li key={item}>
           {item}
           <button onClick={() => removeItem(index)}>삭제</button>
         </li>)}
       </ul>
     </section>
-    <StepCounter>
+    {/*
+      11시까지 StepCounter와 같이 List 컴포넌트 UI 출력 컴포넌트로 분리 
+    */}
+    <StepCounter
       value={count}
       onIncrease={increase}
       onDecrease={decrease}
       step={5}
-    </StepCounter>
+    />
+    {/* 
+      UI 컴포넌트는 출력 전용
+      상태를 위(App.jsx)에서 소유
+      하위 컴포넌트(StepCounter.jsx)에게 props로 상태를 전달
+      이렇게 만들어진 컴포넌트(StepCounter.jsx)는 props
+    */}
+    <removeItem
+      
+    />
+
     </>
   )
 }
