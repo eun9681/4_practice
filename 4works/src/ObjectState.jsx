@@ -41,7 +41,7 @@ function ObjectState() { // 파일명과 컴포넌트명 일치시키는 게 좋
       */}
       {
         player.hp === 0 ?  (<p>사망</p>) : (
-            <>
+            < >
                 <button onClick={() => takeDamage(10)}>데미지</button>
                 <button onClick={() => heal(10)}>회복</button>
             </>
